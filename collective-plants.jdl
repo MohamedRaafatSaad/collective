@@ -1,0 +1,30 @@
+application {
+    config {
+    	skipClient true
+		authenticationType jwt
+		devDatabaseType h2Disk
+        prodDatabaseType postgresql
+        buildTool maven
+		enableSwaggerCodegen true
+		baseName collective
+		packageName com.collective.myapp
+		languages	[en , ar-ly]
+		serverPort 8383
+    }
+	entities *
+}
+
+@service(serviceClass)
+@service(serviceImpl)
+entity Plants {
+	year Integer required unique
+    pstatabb String required
+    pname String required
+    genid String required 
+    genstat String required
+    genntan Integer
+}
+
+paginate * with pagination
+
+dto * with mapstruct
